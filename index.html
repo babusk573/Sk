@@ -3,51 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Human Service</title>
+    <title>Gulabi Babu Global AI</title>
     <style>
-        body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; background-color: #f4f4f9; }
-        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        .chat-container { position: fixed; bottom: 20px; right: 20px; width: 300px; border: 1px solid #ccc; border-radius: 10px; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        .chat-header { background: #007bff; color: white; padding: 10px; border-radius: 10px 10px 0 0; }
-        .chat-box { height: 200px; overflow-y: auto; padding: 10px; font-size: 14px; border-bottom: 1px solid #eee; }
-        .chat-input { display: flex; padding: 10px; }
-        input { flex: 1; padding: 5px; border: 1px solid #ddd; border-radius: 5px; }
-        button { background: #28a745; color: white; border: none; padding: 5px 10px; margin-left: 5px; border-radius: 5px; cursor: pointer; }
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f172a; color: white; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .chat-card { width: 95%; max-width: 500px; height: 90vh; background: #1e293b; border-radius: 25px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid #334155; }
+        .header { background: linear-gradient(135deg, #38bdf8, #2563eb); color: white; padding: 20px; text-align: center; }
+        .header h2 { margin: 0; font-size: 22px; }
+        #chat-box { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 15px; background: #0f172a; }
+        .msg { padding: 12px 16px; border-radius: 18px; max-width: 85%; font-size: 15px; line-height: 1.5; }
+        .user { align-self: flex-end; background: #38bdf8; color: #0f172a; font-weight: bold; border-bottom-right-radius: 2px; }
+        .ai { align-self: flex-start; background: #334155; color: #f1f5f9; border-bottom-left-radius: 2px; }
+        .input-area { padding: 15px; background: #1e293b; display: flex; gap: 10px; border-top: 1px solid #334155; }
+        input { flex: 1; background: #0f172a; border: 1px solid #334155; padding: 12px; border-radius: 12px; color: white; outline: none; }
+        button { background: #38bdf8; color: #0f172a; border: none; padding: 0 20px; border-radius: 12px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Gulabi Babu - Global Human Service</h1>
-        <p>মানুষের সেবায় আমরা সবসময় আপনার পাশে।</p>
-        <hr>
-        <h3>আমাদের সেবাসমূহ:</h3>
-        <ul>
-            <li><b>স্বাস্থ্য:</b> ডাক্তার ও নার্সিং হোম সহায়তা।</li>
-            <li><b>শিক্ষা:</b> স্কুল-কলেজ ভর্তি গাইডলাইন।</li>
-            <li><b>মিস্ত্রি:</b> রাজমিস্ত্রি, ইলেকট্রিশিয়ান ও প্লাম্বার।</li>
-        </ul>
+<div class="chat-card">
+    <div class="header"><h2>Gulabi Babu AI</h2><p>সব ভাষার উত্তর এখানে</p></div>
+    <div id="chat-box"><div class="msg ai">নমস্কার! আমি গুল্যাবি বাবু এআই। যেকোনো প্রশ্ন করুন।</div></div>
+    <div class="input-area">
+        <input type="text" id="userInput" placeholder="এখানে লিখুন...">
+        <button onclick="askAI()">পাঠান</button>
     </div>
-    <div class="chat-container">
-        <div class="chat-header">Global Service AI Chat</div>
-        <div id="chat-box" class="chat-box"></div>
-        <div class="chat-input">
-            <input id="user-input" type="text" placeholder="কিছু লিখুন...">
-            <button onclick="askBot()">পাঠান</button>
-        </div>
-    </div>
-    <script>
-        function askBot() {
-            let input = document.getElementById("user-input").value.toLowerCase();
-            let box = document.getElementById("chat-box");
-            let reply = "দুঃখিত, আমি এটি বুঝতে পারছি না। আপনি কি ডাক্তার, মিস্ত্রি বা শিক্ষা নিয়ে জানতে চান?";
-            if (input.includes("ডাক্তার")) reply = "আমাদের কাছে বিশেষজ্ঞ ডাক্তারদের জরুরি নম্বর আছে।";
-            else if (input.includes("মিস্ত্রি")) reply = "আমরা দক্ষ রাজমিস্ত্রি ও ইলেকট্রিশিয়ান সরবরাহ করি।";
-            else if (input.includes("হ্যালো") || input.includes("hi")) reply = "নমস্কার! আমি কীভাবে সাহায্য করতে পারি?";
-            box.innerHTML += "<div><b>আপনি:</b> " + input + "</div>";
-            box.innerHTML += "<div style='color: #007bff;'><b>AI:</b> " + reply + "</div>";
-            document.getElementById("user-input").value = "";
-            box.scrollTop = box.scrollHeight;
-        }
-    </script>
+</div>
+<script>
+    async function askAI() {
+        const input = document.getElementById('userInput');
+        const chatBox = document.getElementById('chat-box');
+        if (!input.value.trim()) return;
+        chatBox.innerHTML += `<div class="msg user">${input.value}</div>`;
+        const loadingId = "load-" + Date.now();
+        chatBox.innerHTML += `<div class="msg ai" id="${loadingId}">Gulabi AI ভাবছি...</div>`;
+        const q = input.value;
+        input.value = '';
+        chatBox.scrollTop = chatBox.scrollHeight;
+        
+        setTimeout(() => {
+            document.getElementById(loadingId).innerHTML = "<b>Gulabi AI:</b> আমি আপনার প্রশ্নটি পেয়েছি। পৃথিবীর সব প্রশ্নের উত্তর সক্রিয় করতে একটি <b>Gemini API Key</b> প্রয়োজন।";
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }, 1500);
+    }
+</script>
 </body>
 </html>
